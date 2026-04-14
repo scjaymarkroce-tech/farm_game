@@ -3,6 +3,8 @@ extends Area2D
 
 @export var tool : DataTypes.Tools = DataTypes.Tools.None
 
+
+#signal hurt(hit_damage: int)
 signal hurt
 
 

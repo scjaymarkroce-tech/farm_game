@@ -21,5 +21,6 @@ tile_set = ExtResource("1_kc2gg")
 
 [node name="Player" parent="GameTilemap" instance=ExtResource("2_cclx3")]
 position = Vector2(241, 262)
+current_tool = 1
 
 [node name="Camera2D" type="Camera2D" parent="GameTilemap/Player"]

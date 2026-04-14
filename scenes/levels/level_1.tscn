@@ -50,7 +50,7 @@ tile_map_data = PackedByteArray("AAAxAP3/AQABAAEAAAAxAPz/AQABAAEAAAAxAPv/AQABAAE
 tile_set = ExtResource("1_ksju7")
 
 [node name="TilledSoil" type="TileMapLayer" parent="GameTilemap"]
-z_index = 13
+z_index = 11
 tile_set = ExtResource("1_ksju7")
 
 [node name="SaveDataComponent" parent="GameTilemap/TilledSoil" instance=ExtResource("2_dga24")]

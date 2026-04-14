@@ -4,5 +4,4 @@
 
 [node name="OnTheFarmMusic" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_iwkhc")
-stream_paused = true
 bus = &"Music"

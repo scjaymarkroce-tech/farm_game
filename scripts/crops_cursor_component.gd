@@ -13,6 +13,7 @@ var cell_position: Vector2i
 var cell_source_id: int
 var local_cell_position: Vector2
 var distance: float
+var global_cell_position: Vector2 # Add this to the top variables list
 
 
 func _ready() -> void:
@@ -38,30 +39,33 @@ func get_cell_under_mouse() -> void:
 	cell_position = tilled_soil_tilemap_layer.local_to_map(mouse_position)
 	cell_source_id = tilled_soil_tilemap_layer.get_cell_source_id(cell_position) 		
 	local_cell_position = tilled_soil_tilemap_layer.map_to_local(cell_position)
-	distance = player.global_position.distance_to(local_cell_position)
 	
+	# FIX: Convert local to global for distance check
+	global_cell_position = tilled_soil_tilemap_layer.to_global(local_cell_position)
+	distance = player.global_position.distance_to(global_cell_position)
 
 func add_crop() -> void: 
-	if distance < 20.0:
+	if distance < 60.0: # Keep this increased radius
 		if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
 			var corn_instance = corn_plant_scene.instantiate() as Node2D
-			corn_instance.global_position = local_cell_position
+			# FIX: Spawn at global_cell_position instead of local_cell_position
+			corn_instance.global_position = global_cell_position
 			get_parent().find_child("CropFields").add_child(corn_instance)
 			
 		if ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
 			var tomato_instance = tomato_plant_scene.instantiate() as Node2D
-			tomato_instance.global_position = local_cell_position
+			# FIX: Spawn at global_cell_position instead of local_cell_position
+			tomato_instance.global_position = global_cell_position
 			get_parent().find_child("CropFields").add_child(tomato_instance)
 
-
 func remove_crop() -> void:
-	if distance < 20.0:
+	if distance < 60.0:
 		var crop_nodes = get_parent().find_child("CropFields").get_children()
 		
 		for node: Node2D in crop_nodes:
-			if node.global_position == local_cell_position:
+			# FIX: Check against global_cell_position
+			if node.global_position == global_cell_position:
 				node.queue_free()
-		
 		
 		
 		

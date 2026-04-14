@@ -7,6 +7,7 @@
 radius = 9.05539
 
 [node name="CornHarvest" type="Sprite2D"]
+z_index = 12
 texture = ExtResource("1_t6a33")
 hframes = 6
 vframes = 2

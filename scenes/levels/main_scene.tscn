@@ -11,7 +11,6 @@
 [node name="MouseCursorComponent" parent="." instance=ExtResource("1_43vid")]
 
 [node name="DayAndNightCycleComponent" parent="." instance=ExtResource("1_ybdc1")]
-visible = false
 
 [node name="GameRoot" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -24,7 +23,7 @@ z_index = 2
 y_sort_enabled = true
 
 [node name="Player" parent="GameRoot" instance=ExtResource("3_43vid")]
-z_index = 5
+z_index = 100
 position = Vector2(1300, 1339)
 
 [node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]

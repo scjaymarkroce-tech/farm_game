@@ -13,6 +13,7 @@
 size = Vector2(13, 7)
 
 [node name="Corn" type="Node2D"]
+z_index = 12
 script = ExtResource("1_afs1y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
